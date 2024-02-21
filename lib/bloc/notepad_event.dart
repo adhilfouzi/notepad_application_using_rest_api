@@ -12,12 +12,12 @@ final class AddNotepadEvent extends NotepadEvent {
 }
 
 class UpdateNotepadEvent extends NotepadEvent {
-  final String id;
+  final String noteId;
   final Map body;
-  UpdateNotepadEvent(this.id, this.body);
+  UpdateNotepadEvent(this.noteId, this.body);
 }
 
 class DeleteNotepadEvent extends NotepadEvent {
-  final String id;
-  DeleteNotepadEvent(this.id);
+  final String noteId;
+  DeleteNotepadEvent(this.noteId);
 }

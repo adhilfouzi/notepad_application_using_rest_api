@@ -54,7 +54,8 @@ class NotepadBloc extends Bloc<NotepadEvent, NotepadState> {
       UpdateNotepadEvent event, Emitter<NotepadState> emit) async {
     emit(NotepadUpdatingState());
     try {
-      final responce = await notepadRepository.updatedata(event.id, event.body);
+      final responce =
+          await notepadRepository.updatedata(event.noteId, event.body);
       if (responce) {
         emit(NotepadUpdatedSuccess());
       } else {
@@ -70,7 +71,7 @@ class NotepadBloc extends Bloc<NotepadEvent, NotepadState> {
       DeleteNotepadEvent event, Emitter<NotepadState> emit) async {
     emit(NotepadDeletingState());
     try {
-      final responce = await notepadRepository.delectById(event.id);
+      final responce = await notepadRepository.delectById(event.noteId);
       if (responce) {
         emit(NotepadDeletedState());
         final notepad = await notepadRepository.fetchNotepad();
